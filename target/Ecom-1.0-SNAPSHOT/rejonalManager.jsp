@@ -144,7 +144,7 @@
                         <div class="CreateUser">
                             
                         </div>
-                        <a href="Register.jsp"><h2>Create New Manager</h2></a>
+                        <a href="reginoalReg.jsp"><h2>Create New Manager</h2></a>
                     </div>
                 </section>
                 

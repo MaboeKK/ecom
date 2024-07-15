@@ -31,6 +31,14 @@
             text-align: center;
             margin-left: 30px;
         }
+        select
+        {
+              border-radius: 20px;
+            border: 1px solid #c0c0c0;
+            outline: 0 !important;
+            box-sizing: border-box;
+            padding: 12px 15px;
+        }
     </style>
     <body>
         <%
@@ -52,6 +60,7 @@
                   <input name="surname" type="text" class="input" placeholder="">
                   <label>Email</label>
                   <input name="email" type="email" class="input" placeholder="">
+                  <label>Position</label>
                   <select name="accessLevel">
                       <option></option>
                       <option>Floor Manager</option>

@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class UserDAOImp implements UserDaoInterface{
     
-    private static String URL = "jdbc:mysql://localhost:3306/ecom?useSSL=false";
+    private static String URL = "jdbc:mysql://localhost:3306/ecommerce?useSSL=false";
     private static String username = "root";
     private static String password = "root";
     private static String JDBC = "com.mysql.cj.jdbc.Driver";

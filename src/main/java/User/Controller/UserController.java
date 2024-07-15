@@ -72,6 +72,10 @@ public class UserController extends HttpServlet {
                     //This worker will have overriding and refund password privillages;
                     Access = 2;
                 }
+                if(request.getParameter("accessLevel").equalsIgnoreCase("Store Manager"))
+                {
+                    Access = 3;
+                }
                  //CHECK IF THE PASSWORD MATCHES THE CONFIRMATIOON PASSWORD
                 if(!request.getParameter("password").equals(request.getParameter("confirmPassword")) )
                 {
