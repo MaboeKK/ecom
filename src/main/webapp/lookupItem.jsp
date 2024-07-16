@@ -71,7 +71,7 @@
                     <table>   
                         <tr>
                             <td>
-                                 <img src="Images/Items/ProActive Cross-Trainers.png">
+                                 <img src="image?id=1">
                             </td>
                             <td>
                                 <img src="Images/Items/Retro Style Casual Trainers.png">
