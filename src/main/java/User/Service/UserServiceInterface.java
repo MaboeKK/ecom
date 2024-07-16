@@ -19,4 +19,5 @@ public interface UserServiceInterface {
     User getUser(String email);
     void update(User user);
     void viewUsers(List<User> userlist);
+
 }

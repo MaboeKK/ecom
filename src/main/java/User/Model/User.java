@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package User.Model;
+import lombok.*;
+@Getter@Setter@Builder
 
-/**
- *
- * @author Tshiamo
- */
 public class User {
     
     private String employeeID;
@@ -17,16 +15,9 @@ public class User {
     private String email;
     private int accessLevel;
     private String password;
+    //private String empId;
 
     public User() {
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
 
@@ -47,49 +38,6 @@ public class User {
         this.email = email;
         this.password = password;
     }
-    
-    
 
-    public String getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(String employeeID) {
-        this.employeeID = employeeID;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAccessLevel() {
-        return accessLevel;
-    }
-
-    public void setAccessLevel(int accessLevel) {
-        this.accessLevel = accessLevel;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    
     
 }

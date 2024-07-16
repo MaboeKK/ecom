@@ -63,8 +63,9 @@ public class UserDAOImp implements UserDaoInterface{
                      String EMAIL = resultSet.getString("EMAIL");
                      String PASSWORD = resultSet.getString("PASSWORD");
                      String ACCESS_LEVEL = resultSet.getString("ACCESS_LEVEL");
+                     //String empId = resultSet.getString("Emp_ID");
                      
-                     user = new User(EMPLOYEEID, FIRSTNAME, SURNAME, EMAIL, Integer.parseInt(ACCESS_LEVEL), PASSWORD);  
+                     user = new User(EMPLOYEEID, FIRSTNAME, SURNAME, EMAIL, Integer.parseInt(ACCESS_LEVEL), PASSWORD);
                      return user;
                  }
                  
@@ -105,6 +106,8 @@ public class UserDAOImp implements UserDaoInterface{
                  Logger.getLogger(UserDAOImp.class.getName()).log(Level.SEVERE, null, ex);
                  ex.printStackTrace();
              }
+
+
     }
 
  

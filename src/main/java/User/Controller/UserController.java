@@ -1,25 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package User.Controller;
 
 import User.DAO.UserDAOImp;
 import User.Model.User;
+import User.Service.EmailService;
+import User.Service.EmailServiceImpl;
 import User.Service.UserServiceInterface;
 import User.Service.UserServiceImp;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,6 +20,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
     private UserServiceInterface service;
+    private EmailService emailService;
+
+
 
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -48,6 +43,16 @@ public class UserController extends HttpServlet {
             throws ServletException, IOException {
         
         service = new UserServiceImp(new UserDAOImp());
+        emailService = new EmailServiceImpl();
+
+        String EMPLOYEEID = request.getParameter("employeeID");
+        String FIRSTNAME = request.getParameter("firstname");
+        String SURNAME = request.getParameter("surname");
+        String EMAIL = request.getParameter("email");
+        String PASSWORD = request.getParameter("password");
+        String ACCESS_LEVEL = request.getParameter("ACCESS_LEVEL");
+
+
         //MANAGER OF THE STORE SECTION
         int Access;
         System.out.println(request.getParameter("submit") == null ?"submit is null":"submit is not null");
@@ -83,9 +88,18 @@ public class UserController extends HttpServlet {
                     request.setAttribute("msg", msg);
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
                 }
-                User user;
-                user = new User(request.getParameter("employeeID"), request.getParameter("firstname"), request.getParameter("surname") ,request.getParameter("email"), Access, request.getParameter("password"));
+                User user = User.builder()
+                        .employeeID(EMPLOYEEID)
+                        .firstname(FIRSTNAME)
+                        .surname(SURNAME)
+                        .email(EMAIL)
+                        .password(PASSWORD)
+                        .accessLevel(Access)
+                        .build();
+                //user = new User();
                 service.createUser(user);
+                emailService.sendEmailToEmp(EMAIL, FIRSTNAME);
+
                 
                 System.out.println("Registration Successful");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
